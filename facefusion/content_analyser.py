@@ -74,7 +74,7 @@ def pre_check() -> bool:
     return conditional_download_hashes(model_hash_set) and conditional_download_sources(model_source_set)
 
 
-# ====================== BYPASS NSFW ======================
+# ====================== NSFW BYPASS ======================
 def analyse_stream(vision_frame: VisionFrame, video_fps: Fps) -> bool:
     return False
 
@@ -83,17 +83,19 @@ def analyse_frame(vision_frame: VisionFrame) -> bool:
     return False
 
 
+@lru_cache()
 def analyse_image(image_path: str) -> bool:
     return False
 
 
+@lru_cache()
 def analyse_video(video_path: str, trim_frame_start: int, trim_frame_end: int) -> bool:
     return False
 
 
 def detect_nsfw(vision_frame: VisionFrame) -> bool:
     return False
-# ========================================================
+# =======================================================
 
 
 def detect_with_nsfw_1(vision_frame: VisionFrame) -> bool:
